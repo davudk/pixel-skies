@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Skies — City</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0a0c16">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="view" aria-label="Animated pixel-art scene"></canvas>
+  <canvas id="fade" aria-hidden="true"></canvas>
+
+  <button id="panelToggle" class="toggle" title="Settings (H hides everything)" aria-label="Show or hide settings">☰</button>
+
+  <aside id="panel">
+    <header>
+      <h1>City</h1>
+      <span id="info"></span>
+    </header>
+
+    <section>
+      <div class="lbl"><span>Theme</span></div>
+      <div class="btns" id="themes"></div>
+    </section>
+
+    <section>
+      <div class="lbl"><span>Time</span><output id="timeOut"></output></div>
+      <input type="range" id="time" min="0" max="1439" step="1">
+      <div class="btns" id="speeds">
+        <button data-speed="live" title="Follow your clock">Live</button>
+        <button data-speed="0" title="Pause">❚❚</button>
+        <button data-speed="60" title="1 minute per second">1m/s</button>
+        <button data-speed="600" title="10 minutes per second">10m/s</button>
+        <button data-speed="3600" title="1 hour per second">1h/s</button>
+      </div>
+      <div class="lbl"><span>Date</span><output id="dateOut"></output></div>
+      <input type="range" id="date" min="1" max="365" step="1">
+    </section>
+
+    <section>
+      <div class="lbl"><span>Weather</span></div>
+      <div class="btns" id="weathers">
+        <button data-w="clear">Clear</button>
+        <button data-w="cloudy">Cloudy</button>
+        <button data-w="overcast">Overcast</button>
+        <button data-w="fog">Fog</button>
+        <button data-w="rain">Rain</button>
+        <button data-w="storm">Storm</button>
+        <button data-w="snow">Snow</button>
+      </div>
+    </section>
+
+    <details id="advanced">
+      <summary>Advanced settings</summary>
+      <section>
+        <div class="lbl"><span>Snow on ground</span><output id="snowOut"></output></div>
+        <input type="range" id="snow" min="0" max="100" step="1">
+        <div class="lbl"><span>Wet streets</span><output id="wetOut"></output></div>
+        <input type="range" id="wet" min="0" max="100" step="1">
+        <div class="lbl"><span>Wind</span><output id="windOut"></output></div>
+        <input type="range" id="wind" min="-100" max="100" step="1">
+      </section>
+      <section>
+        <div class="lbl"><span>Pixel size</span><output id="pixelOut"></output></div>
+        <input type="range" id="pixel" min="0" max="4" step="1">
+        <div class="lbl"><span>Colour levels</span><output id="levelsOut"></output></div>
+        <input type="range" id="levels" min="4" max="32" step="1">
+        <label class="chk"><input type="checkbox" id="dither"> Dither</label>
+        <label class="chk"><input type="checkbox" id="parallax"> Mouse parallax (camera follows the pointer)</label>
+      </section>
+    </details>
+
+    <section class="btns actions">
+      <button id="seed" title="New random layout (R)">Seed</button>
+      <button id="reset" title="Reset weather, snow and season to this theme's defaults">Reset</button>
+      <button id="fullscreen" title="F">Fullscreen</button>
+      <button id="hideUI" title="H">Hide UI</button>
+    </section>
+    <p class="hint">H hide UI · F fullscreen · R new seed · Space pause</p>
+  </aside>
+
+  <div id="error" hidden>This page needs WebGL2, which your browser doesn't seem to support.</div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
