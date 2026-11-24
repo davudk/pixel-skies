@@ -4,6 +4,10 @@ Animated pixel-art backgrounds that fill the whole screen, crisp at any
 resolution, with a live time of day, real seasons and weather. Plain HTML,
 CSS and JavaScript (WebGL2), with no libraries and no build step.
 
+![The six themes: City, Skyline, Village, Harbour, Garden and Sky Isles](docs/images/themes.png)
+
+**Live demo:** https://davudk.github.io/pixel-skies/
+
 ## Themes
 
 | Theme | View | Highlights |
